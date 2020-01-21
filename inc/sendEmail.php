@@ -28,7 +28,7 @@ if($_POST) {
 
 
     // Set Message
-    $message .= "Email from: " . $name . "<br />";
+    $message = "Email from: " . $name . "<br />";
     $message .= "Email address: " . $email . "<br />";
     $message .= "Message: <br />";
     $message .= $contact_message;
@@ -44,7 +44,7 @@ if($_POST) {
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 
-    if (!$error) {
+    if ($error) {
 
         ini_set("sendmail_from", $siteOwnersEmail); // for windows server
         $mail = mail($siteOwnersEmail, $subject, $message, $headers);
